@@ -1,21 +1,22 @@
 class LinksController < ApplicationController
   before_action :set_link, only: [:show, :edit, :update, :destroy]
-  before_action:authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show]
+#  before_action :upvote, except: :index
 
-  # GET /links
-  # GET /links.json
-  def index
-    @links = Link.all
-  end
+	# GET /links
+	  # GET /links.json
+	  def index
+	    @links = Link.all
+	  end
 
-  # GET /links/1
-  # GET /links/1.json
-  def show
-  end
+	  # GET /links/1
+	  # GET /links/1.json
+	  def show
+	  end
 
-  # GET /links/new
-  def new
-    @link = current_user.links.build
+	  # GET /links/new
+	  def new
+	    @link = current_user.links.build
   end
 
   # GET /links/1/edit
@@ -60,6 +61,19 @@ class LinksController < ApplicationController
       format.html { redirect_to links_url, notice: 'Link was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def upvote
+	  @link = Link.find(params[:id])
+	  @link.upvote_by current_user
+	  redirect_to :back
+  end
+
+  def downvote
+	  @link = Link.find(params[:id])
+	  @link.downvote_by current_user
+	  redirect_to :back
+		
   end
 
   private
