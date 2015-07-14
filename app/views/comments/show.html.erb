@@ -1,7 +1,7 @@
 
-<p>
-  <strong>Link:</strong>
-  <%= @comment.link_id %>
+
+  <strong>Link Title:</strong>
+  <%= Link.find(@comment.link_id).title %>
 </p>
 
 <p>
@@ -15,4 +15,4 @@
 </p>
 
 <%= link_to 'Edit', edit_comment_path(@comment) %> |
-<%= link_to 'Back', comments_path %>
+<%= link_to 'Back', link_path(@comment.link_id) %>
