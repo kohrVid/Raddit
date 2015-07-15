@@ -1,2 +1,2 @@
 == README
-ThiS application was created whilst watching Mackenzie Child's Reddit Clone tutorial on Youtube. I noticed that it wasn't possible to update comments in Child's original application and have hopefully fixed this bug.
+This application was created whilst watching Mackenzie Child's Reddit Clone tutorial on Youtube. I noticed that it wasn't possible to update comments in Child's original application and have hopefully fixed this bug.
